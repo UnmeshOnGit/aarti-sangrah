@@ -9,6 +9,7 @@ body{
 }
 
 .headline{
+    padding: 3px    ;
     background-color: #048BA8;
     width: 100%;
     text-align: center;
@@ -17,24 +18,31 @@ body{
 nav{
     position: sticky;
     top: 0;
-    height: 50px;
+    height: 40px;
     background-color: #2E4057;
     width: 100%;
     color: white;
 }
 
 nav button{
+    background-color: rgb(203, 144, 17);
+    border: 1px solid black;
+    /* color: white; */
+    padding: 3px;
+    font-weight: 500;
     margin: 10px;
-    font-size: 25px;
+    font-size: 22 px;
 }
 
 nav .dialouge{
     display: none;
     background-color: #395C6B;
     width: 150px;
-    margin: 10px 30px;
+    margin: 5px 30px;
     padding: 10px;
-    font-size: 20px
+    font-size: 20px;
+    border: 1px solid black;
+    border-radius: 15px;
 }
 
 nav .dialouge a{
