@@ -11,17 +11,15 @@
         <h1>श्री स्वामी समर्थ आरती संग्रह</h1>   
     </div>
     <nav>
-        <button>Select Aarti</button>
-        <div class="dialouge">
-            <a href="#three">swami aarti 1</a>
-            <a href="#three">swami aarti 1</a>
-            <a href="#three">swami aarti 1</a>
-            <a href="#three">swami aarti 1</a>
-            <a href="#three">swami aarti 1</a>
-            <a href="#three">swami aarti 1</a>
-            <a href="#three">swami aarti 1</a>
-            <a href="#three">swami aarti 1</a>
-            <a href="#three">swami aarti 1</a>
+        <button id="button" onclick="toggleFun()" >Select Aarti</button>
+        <div class="dialouge" id="dialouge-box" onclick="closeFun()" >
+            <a href="#three">गणपतीची आरती </a><br>
+            <a href="#three">स्वामी आरती १ </a><br>
+            <a href="#three">स्वामी आरती २ </a><br>
+            <a href="#three">स्वामी आरती ३  </a><br>
+            <a href="#three">स्वामी आरती ४</a><br>
+            <a href="#three">शंकराची आरती </a><br>
+            <a href="#three">दत्ताची आरती</a><br>
         </div>
     </nav>
     <div class="one" align="center">
@@ -113,5 +111,18 @@
         जय देव जय देव ॥५॥        <br>
         <br>
     </div>
+
+    <script>
+        
+        function toggleFun(){
+            // let Dialouge_Box = document.getElementById("dialouge-box")
+            // document.getElementById("dialouge-box").classList.toggle(".new-dialouge")       
+            document.getElementById("dialouge-box").style.display = "block"
+        }
+
+        function closeFun(){
+            document.getElementById("dialouge-box").style.display = "none"
+        }
+    </script>
 </body>
 </html>
