@@ -31,9 +31,10 @@ nav button{
 nav .dialouge{
     display: none;
     background-color: green;
-    width: 120px;
+    width: 150px;
     margin: 10px 30px;
     padding: 10px;
+    font-size: 20px
 }
 
 nav .dialouge a{
