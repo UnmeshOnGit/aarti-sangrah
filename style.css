@@ -17,24 +17,39 @@ body{
 nav{
     position: sticky;
     top: 0;
-    height: 30px;
+    height: 50px;
     background-color: #2E4057;
     width: 100%;
     color: white;
 }
 
+nav button{
+    margin: 10px;
+    font-size: 25px;
+}
+
 nav .dialouge{
+    display: none;
     background-color: green;
     width: 120px;
     margin: 10px 30px;
     padding: 10px;
 }
 
+nav .dialouge a{
+    text-decoration: none;
+    color: white;
+}
+
+.new-dialouge{
+    display: block;
+}
+
 body .one , .two, .three, .four{
     background-color: #720E07;
     color: #DEE7E7;
     margin: 25px;
-    padding: 50px;
+    padding: 60px;
     border: 2px solid black;
     border-radius: 10px;
     font-size: 18px;
