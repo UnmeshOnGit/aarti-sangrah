@@ -17,6 +17,10 @@ body{
     font-weight: 700;
 }
 
+h5{
+    color: #720E07;
+}
+
 nav{
     position: sticky;
     top: 0;
