@@ -36,14 +36,14 @@ nav button{
     /* color: white; */
     padding: 3px;
     font-weight: 500;
-    margin: 10px;
+    margin: 12px;
     font-size: 24 px;
 }
 
 nav .dialouge{
     display: none;
     background-color: #395C6B;
-    width: 240px;
+    width: 250px;
     margin: 5px 30px;
     padding: 12px;
     font-size: 22px;
