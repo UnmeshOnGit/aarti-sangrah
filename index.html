@@ -3,764 +3,1075 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Delight - Digital Menu</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Marathi:ital@0;1&family=Hind:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <title>आरती संग्रह</title>
     <style>
         :root {
-            --primary: #720E07;
-            --primary-light: #9c3a33;
-            --secondary: #048BA8;
-            --secondary-light: #2E4057;
-            --accent: #EECF6D;
-            --accent-light: #f5e3a8;
-            --light: #DEE7E7;
-            --dark: #1a1a1a;
-            --shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            --primary: #2c3e50;
+            --secondary: #e74c3c;
+            --accent: #f39c12;
+            --light: #ecf0f1;
+            --dark: #34495e;
+            --success: #27ae60;
+            --veg: #27ae60;
+            --non-veg: #e74c3c;
+            --text: #333;
+            --text-light: #7f8c8d;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --radius: 8px;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background: linear-gradient(135deg, #f9f5e9 0%, #f0e6c3 100%);
-            font-family: "Hind", sans-serif;
-            color: var(--dark);
+            background-color: #f5f7fa;
+            color: var(--text);
             line-height: 1.6;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 15px;
         }
 
-        /* Header Styles */
-        .header {
-            background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%);
+        header {
+            background-color: var(--primary);
             color: white;
-            padding: 20px 0;
-            text-align: center;
-            box-shadow: var(--shadow);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .header::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--accent);
-        }
-
-        .header h1 {
-            font-family: "Tiro Devanagari Marathi", serif;
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-        }
-
-        .header h5 {
-            color: var(--accent-light);
-            font-weight: 500;
-            font-size: 1rem;
-        }
-
-        /* Navigation Styles */
-        nav {
-            background: var(--secondary-light);
+            padding: 15px 0;
             position: sticky;
             top: 0;
             z-index: 100;
             box-shadow: var(--shadow);
         }
 
-        .nav-container {
+        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 20px;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
-        nav button {
-            background: var(--accent);
-            color: var(--dark);
-            border: none;
-            padding: 10px 20px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .logo i {
+            color: var(--accent);
+        }
+
+        .table-info {
+            background-color: var(--dark);
+            padding: 8px 15px;
+            border-radius: var(--radius);
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
-        nav button:hover {
-            background: var(--accent-light);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        nav .dialouge {
-            display: none;
-            background: white;
-            width: 280px;
-            margin: 10px 0;
-            padding: 15px;
-            font-size: 1rem;
-            border-radius: 10px;
+        .filter-section {
+            background-color: white;
+            padding: 15px 0;
+            margin-bottom: 20px;
             box-shadow: var(--shadow);
-            position: absolute;
-            top: 100%;
-            right: 20px;
-            z-index: 101;
-            max-height: 70vh;
-            overflow-y: auto;
+            position: sticky;
+            top: 80px;
+            z-index: 90;
         }
 
-        nav .dialouge a {
-            display: block;
-            text-decoration: none;
-            color: var(--secondary-light);
-            padding: 10px 15px;
-            border-radius: 5px;
-            transition: all 0.2s ease;
+        .filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .filter-group {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .filter-label {
+            font-weight: 600;
+            color: var(--text-light);
+            white-space: nowrap;
+        }
+
+        .filter-options {
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background-color: var(--light);
+            border: none;
+            padding: 8px 15px;
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: all 0.3s ease;
             font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
 
-        nav .dialouge a:hover {
-            background: var(--accent-light);
-            color: var(--dark);
+        .filter-btn.active {
+            background-color: var(--secondary);
+            color: white;
         }
 
-        nav .dialouge hr {
-            border: none;
-            height: 1px;
-            background: #eee;
-            margin: 5px 0;
+        .filter-btn.veg.active {
+            background-color: var(--veg);
         }
 
-        /* Aarti Content Styles */
-        .aarti-container {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 25px;
-            padding: 30px 0;
+        .filter-btn.non-veg.active {
+            background-color: var(--non-veg);
         }
 
-        .aarti-card {
-            background: white;
-            border-radius: 12px;
-            padding: 30px;
-            box-shadow: var(--shadow);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .aarti-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 6px;
-            height: 100%;
-            background: var(--primary);
-        }
-
-        .aarti-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .aarti-card h3 {
-            font-family: "Tiro Devanagari Marathi", serif;
-            color: var(--primary);
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            text-align: center;
-            position: relative;
+        .category-tabs {
+            display: flex;
+            overflow-x: auto;
+            gap: 10px;
+            margin-bottom: 30px;
             padding-bottom: 10px;
+            scrollbar-width: thin;
         }
 
-        .aarti-card h3::after {
-            content: "";
+        .category-tab {
+            background-color: white;
+            padding: 12px 20px;
+            border-radius: var(--radius);
+            cursor: pointer;
+            white-space: nowrap;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        .category-tab.active {
+            background-color: var(--secondary);
+            color: white;
+        }
+
+        .category-tab:hover:not(.active) {
+            background-color: var(--light);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 100px;
+        }
+
+        .menu-item {
+            background-color: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .item-image {
+            height: 180px;
+            width: 100%;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            position: relative;
+        }
+
+        .item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .veg-indicator {
             position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: var(--accent);
-        }
-
-        .aarti-card hr {
-            border: none;
-            height: 1px;
-            background: #eee;
-            margin: 15px 0;
-        }
-
-        .aarti-content {
-            font-family: "Tiro Devanagari Marathi", serif;
-            font-size: 1.3rem;
-            text-align: center;
-            line-height: 1.8;
-        }
-
-        .aarti-content br {
-            margin-bottom: 8px;
-            display: block;
-            content: "";
-        }
-
-        /* Footer Styles */
-        .footer {
-            background: var(--secondary-light);
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-            margin-top: 40px;
-        }
-
-        .footer p {
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-
-        /* Responsive Design */
-        @media (min-width: 768px) {
-            .aarti-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .header h1 {
-                font-size: 3rem;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .aarti-container {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        /* Scroll to top button */
-        .scroll-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: var(--primary);
-            color: white;
-            width: 50px;
-            height: 50px;
+            top: 10px;
+            right: 10px;
+            width: 20px;
+            height: 20px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 12px;
+            color: white;
+            border: 1px solid white;
+        }
+
+        .veg {
+            background-color: var(--veg);
+        }
+
+        .non-veg {
+            background-color: var(--non-veg);
+        }
+
+        .item-details {
+            padding: 15px;
+        }
+
+        .item-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .item-description {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            height: 40px;
+            overflow: hidden;
+        }
+
+        .item-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .item-price {
+            font-weight: 700;
+            color: var(--secondary);
+            font-size: 1.2rem;
+        }
+
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .qty-btn {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: var(--light);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             cursor: pointer;
+            font-weight: bold;
+            color: var(--dark);
+        }
+
+        .qty-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .qty-value {
+            font-weight: 600;
+            min-width: 20px;
+            text-align: center;
+        }
+
+        .cart-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: white;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            z-index: 100;
+        }
+
+        .cart-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-info {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .cart-total {
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .cart-count {
+            background-color: var(--secondary);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+
+        .checkout-btn {
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: var(--radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .checkout-btn:hover {
+            background-color: #c0392b;
+        }
+
+        .checkout-btn:disabled {
+            background-color: var(--text-light);
+            cursor: not-allowed;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+        }
+
+        .modal-content {
+            background-color: white;
+            border-radius: var(--radius);
+            width: 100%;
+            max-width: 500px;
+            padding: 25px;
             box-shadow: var(--shadow);
-            transition: all 0.3s ease;
-            z-index: 99;
-            opacity: 0;
-            visibility: hidden;
+            max-height: 90vh;
+            overflow-y: auto;
         }
 
-        .scroll-top.show {
-            opacity: 1;
-            visibility: visible;
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
         }
 
-        .scroll-top:hover {
-            background: var(--primary-light);
-            transform: translateY(-3px);
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+
+        .order-summary {
+            margin-bottom: 20px;
+        }
+
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--light);
+        }
+
+        .order-item-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .order-item-name {
+            font-weight: 600;
+        }
+
+        .order-item-qty {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .order-item-price {
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        .order-total {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 2px solid var(--light);
+        }
+
+        .confirm-btn {
+            background-color: var(--success);
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 15px;
+            border-radius: var(--radius);
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 15px;
+        }
+
+        .confirm-btn:hover {
+            background-color: #219653;
+        }
+
+        .success-message {
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            color: var(--success);
+            margin-bottom: 20px;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-light);
+        }
+
+        .empty-state i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: var(--light);
+        }
+
+        /* QR Code Scanner Styles */
+        .scanner-modal .modal-content {
+            max-width: 400px;
+        }
+
+        .scanner-container {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .scanner-placeholder {
+            width: 100%;
+            height: 250px;
+            background-color: var(--light);
+            border-radius: var(--radius);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .scanner-placeholder i {
+            font-size: 4rem;
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        .manual-input {
+            margin-top: 20px;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .table-input {
+            flex: 1;
+            padding: 10px 15px;
+            border: 1px solid var(--light);
+            border-radius: var(--radius);
+            font-size: 1rem;
+        }
+
+        .submit-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: var(--radius);
+            cursor: pointer;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .menu-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 15px;
+            }
+
+            .cart-content {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
+
+            .cart-info {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .filters {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .filter-group {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .filter-options {
+                flex: 1;
+                justify-content: flex-end;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .category-tabs {
+                padding-bottom: 5px;
+            }
+
+            .category-tab {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-options {
+                flex-wrap: wrap;
+                justify-content: flex-start;
+            }
+
+            .filter-btn {
+                padding: 6px 12px;
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="header">
+    <header>
         <div class="container">
-            <h1>श्री स्वामी समर्थ आरती संग्रह</h1>
-            <h5>-made by Unmesh</h5>
-        </div>
-    </div>
-
-    <nav>
-        <div class="nav-container">
-            <button id="button" onclick="toggleFun()">
-                <i class="fas fa-book"></i> आरती निवडा
-            </button>
-            <div class="dialouge" id="dialouge-box" onclick="closeFun()">
-                <a href="#one">-गणपतीची आरती </a><hr>
-                <a href="#two">-शंकराची आरती (सोमवार)</a><hr>
-                <a href="#fourteen">-आरती करू शंकराला</a><hr>
-                <a href="#three">-दत्ताची आरती </a><hr>
-                <a href="#four">-जय जय सद्गुरू स्वामी..</a><hr>
-                <a href="#five">-जयदेव जय श्री स्वामी समर्था </a><hr>
-                <a href="#six"> -आरती स्वामीराजा</a><hr>
-                <a href="#thirteen">-कापराची वात </a><hr>
-                <a href="#seven">-जय अवधूता हो स्वामी अवधूता</a><hr>
-                <a href="#eight">-दुर्गे दुर्घट भारी</a><hr>
-                <a href="#nine">-पंचप्राण हे आतुर झाले</a><hr>
-                <a href="#ten">-घालीन लोटांगण</a><hr>
-                <a href="#eleven">-तारक मंत्र</a><hr>
-                <a href="#twelve">-मंत्रपुष्पांजली</a><hr>
-            </div>
-        </div>
-    </nav>
-
-    <div class="container">
-        <div class="aarti-container">
-            <div class="aarti-card" id="one">
-                <h3>|| आरती गणपतीची ||</h3>
-                <hr>
-                <div class="aarti-content">
-                    सुखकर्ता दुखहर्ता वार्ता विघ्नाची ।<br>
-                    नुरवी, पुरवी प्रेम कृपा जयाची।<br>
-                    सर्वांग सुंदर उटी शेंदुराची ।<br>
-                    कंठी झळके माळ मुक्ता फळाची।। १ || <br>
-                    <br>
-                    जयदेव जयदेव जय मंगलमुर्ती ।<br>
-                    दर्शनमात्रे मन कामना पुरती ।। धृ ।।<br>
-                    <br>
-                    रत्नखचित फरा तुज गौरी कुमरा ।<br>
-                    चंदनाची उटी कुंकुमकेशरा ।<br>
-                    हिरे जडीत मुकुट शोभतो बरा ।<br>
-                    रुणझुणती नुपुरे चरणी घागरीया ।। २ ।।<br>
-                    <br>
-                    लंबोदर पितांबर फणिवर वंधना ।<br>
-                    सरळ सोंड वक्रतुंड त्रिनयना ।<br>
-                    दास रामाचा वाट पाहे सदना ।<br>
-                    संकटी पावावे निर्वाणी रक्षावे सुरवर वंदना ।। ३ ।।<br>
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-utensils"></i>
+                    <span>Hotel Delight</span>
                 </div>
-            </div>
-
-            <div class="aarti-card" id="two">
-                <h3>|| शंकराची आरती (सोमवार) ||</h3>
-                <hr>
-                <div class="aarti-content">
-                    लवथवती विक्राळा ब्रह्मांडी माळा ।<br>
-                    विषें कंठ काळा त्रिनेत्री ज्वाला ।<br>
-                    लावण्यसुंदर मस्तकी बाळा ।<br>
-                    तेथुनिया जळ निर्मल वाहे झुळझुळां ।।<br>
-                    जय देव जय देव जय श्रीशंकरा<br>
-                    आरती ओवाळू तुज कर्पुरगौरा ।।१।।<br>
-                    <br>
-                    कर्पुरगौरा भोळा नयनी विशाळा ।<br>
-                    अर्धांगी पार्वती सुमनांच्या माळा ।<br>
-                    विभूतीचे उधळण शीत कंठ निळां<br>
-                    ऐसा शंकर शोभे उमावेल्हाळा ।।<br>
-                    जय देव जय देव जय श्रीशंकरा ।।२।।<br>
-                    <br>
-                    देवीं दैत्यीं सागरमंथन पैं केलें ।<br>
-                    त्यामाजी अवचित हलाहल जें उठिलें ।<br>
-                    ते त्वां असुरपणे प्रशान केलें ।<br>
-                    नीलकंठ नाम प्रसिद्ध झालें ||<br>
-                    जय देव जय देव जय श्रीशंकरा ।।३।।<br>
-                    <br>
-                    व्याघ्रांबर फणिवरधर सुंदर मदनारी ।<br>
-                    पंचानन मनमोहन मुनिजन सुखकारी ।<br>
-                    शतकोटीचे बीज वाचे उच्चारी ।<br>
-                    रघुकुळटिळक रामदास अंतरीं ।।<br>
-                    जय देव जय देव जय श्रीशंकरा ।।४।।<br>
-                </div>
-            </div>
-
-            <div class="aarti-card" id="fourteen">
-                <h3>|| आरती करू शंकराला ||</h3>
-                <hr>
-                <div class="aarti-content">
-                    आरती करू शंकराला,<br> पार्वती गिरिजा या रमणाला ||धृ||<br><br>
-                    सर्व साहित्य पूजेसी आणिले,<br> विभूति लावू या सांबाला ||१||<br><br>
-                    बेलपत्रि पुष्पे ही आणिली,<br> हारतुरे घालू या सांबाला ||२||<br><br>
-                    धुपदीप नैवेद्य आणील,<br> संतोष वाटे या सांबाला || ३||<br><br>
-                    शंखवाजे संबळवाजे,<br> शिव हरबोल, हरहर बोला || ४||<br><br>
-                    मन्मथ म्हणे शिवलिंगाला,<br> माझा देहभान हरला || ५ ||<br><br>
-                </div>
-            </div>
-
-            <div class="aarti-card" id="three">
-                <h3>|| दत्ताची आरती ||</h3>
-                <hr>
-                <div class="aarti-content">
-                    त्रिगुणात्मक त्रैमूर्ती दत्त हा जाणा।<br>
-                    त्रिगुणी अवतार त्रैलोक्यराणा ।<br>
-                    नेती नेती शब्द न ये अनुमाना ॥<br>
-                    सुरवर मुनिजन योगी समाधी न ये ध्याना ॥ १ ॥<br>
-                    <br>
-                    जय देव जय देव जय श्री गुरुदत्ता ।<br>
-                    आरती ओवाळिता हरली भवचिंता ॥ धृ ॥<br>
-                    <br>
-                    सबाह्य अभ्यंतरी तू एक दत्त ।<br>
-                    अभाग्यासी कैची कळेल ही मात ॥<br>
-                    पराही परतली तेथे कैचा हा हेत ।<br>
-                    जन्ममरणाचाही पुरलासे अंत ॥ २ ॥<br>
-                    <br>
-                    दत्त येऊनिया ऊभा ठाकला ।<br>
-                    भावे साष्टांगे प्रणिपात केला ॥<br>
-                    प्रसन्न होऊनि आशीर्वाद दिधला ।<br>
-                    जन्ममरणाचा फेरा चुकवीला ॥ ३ ॥<br>
-                    <br>
-                    दत्त दत्त ऐसें लागले ध्यान ।<br>
-                    हरपले मन झाले उन्मन ॥<br>
-                    मी तू पणाची झाली बोळवण ।<br>
-                    एका जनार्दनी श्रीदत्तध्यान ॥ ४ ॥<br>
-                </div>
-            </div>
-
-            <div class="aarti-card" id="four">
-                <h3>|| जय जय सद्गुरू स्वामी समर्था ||</h3>
-                <hr>
-                <div class="aarti-content">
-                    जय जय सदगुरू स्वामी समर्था आरती करु गुरुवर्या रे॥<br>
-                    अगाध महिमा तव चरणांचा वर्णाया मती दे यारे॥धृ॥<br>
-                    <br>
-                    अक्कलकोटी वास करुनिया दाविली अघटीत चर्या रे ॥<br>
-                    लीलापाशे बध्द करुनिया तोडिले भवभया रे॥१॥<br>
-                    <br>
-                    यवने पुशिले स्वामी कहां है? अक्कलकोटी पहा रे ॥<br>
-                    समाधिसुख ते भोगुनी बोले धन्य स्वामीवर्या रे॥२॥<br>
-                    <br>
-                    जाणसी मनीचे सर्व समर्था विनवू किती भव हरा रे ॥<br>
-                    इतुके देई दीन दयाळा नच तवपद अंतरा रे॥३॥<br>
-                    <br>
-                    जय जय सद्गुरु स्वामी समर्था आरती करु गुरुवर्या रे॥<br>
-                    अगाध महिमा तव चरणांचा वर्णाया मती दे यारे॥धृ॥<br>
-                </div>
-            </div>
-
-            <div class="aarti-card" id="five">
-                <h3>|| जयदेव जयदेव जय श्री स्वामी समर्था ||</h3>
-                <hr>
-                <div class="aarti-content">
-                    जयदेव, जयदेव, जय श्री स्वामी समर्था, जय श्री स्वामी समर्था।<br>
-                    आरती ओवाळू चरणी ठेउनिया माथा।।धृ।।<br>
-                    छेलि खेडे ग्रामी तु अवतरलासी, राया अवतरलासी।<br>
-                    जग्दउध्दारासाठी राया तु फिरसी। भक्तवत्सल खरा तु एक होसी,<br>
-                    राया एक होसी। म्हणुनी शरण आलो तव चरणासी ॥१॥<br>
-                    <br>
-                    त्रैगुण-परब्रम्ह तुझा अवतार, तुझा अवतार।<br>
-                    त्याची काय वर्णु लिला पामर। शेशादिक क्षीणले नलगे त्या पार,<br>
-                    नलगे त्या पार। तेथे जडमुढ कैसा करु मी विस्तार ॥२॥<br>
-                    <br>
-                    देवाधिदेवा तु स्वामी राया, तु स्वामी राया।<br>
-                    निरजर मुनीजन ध्याती भावे तव पाया।<br>
-                    तुझसी अर्पण केली आपुली ही काया, आपुली ही काया।<br>
-                    शरणागता तारी तु स्वामी राया ॥३॥<br>
-                    <br>
-                    अघटीत लिला करुनी जडमुढ उध्दारिले, जडमुढ उध्दारिले।<br>
-                    किर्ती एकूनी कानी चरणी मी लोळे।<br>
-                    चरण प्रसाद मोठा मज हे अनुभवले, मज हे अनुभवले।<br>
-                    तुझ्या सुता नलगे चरणा वेगळे ॥४॥<br>
-                </div>
-            </div>
-
-            <div class="aarti-card" id="six">
-                <h3>|| आरती स्वामीराजा ||</h3>
-                <hr>
-                <div class="aarti-content">
-                    आरती स्वामी राजा।<br>
-                    कोटी आदित्यतेजा। तु गुरु मायबाप।<br>
-                    प्रभू अजानुभुजा। आरती स्वामी राजा॥धृ॥<br>
-                    पुर्ण ब्रम्ह नारायण।<br>
-                    देव स्वामी समर्थ। कलीयुगी अक्कलकोटी।<br>
-                    आले वैकुंठ नायक। आरती स्वामी राजा ॥१॥<br>
-                    लीलया उध्दरिले।<br>
-                    भोळे भाबडे जन। बहुतीव्र साधकासी।<br>
-                    केले आपुल्या समान। आरती स्वामी राजा ॥२॥<br>
-                    अखंड प्रेम राहो।<br>
-                    नामी ध्यानी दयाळा। सत्यदेव सरस्वती।<br>
-                    म्हणे आम्हा सांभाळा। आरती स्वामी राजा ॥३॥<br>
-                </div>
-            </div>
-
-            <div class="aarti-card" id="thirteen">
-                <h3>|| कापरांची वात ओवाळू तुजला ||</h3>
-                <hr>
-                <div class="aarti-content">
-                    कापुराची वात ओवाळू तुजला l <br>
-                    स्वामी ओवाळू तुजला l <br>
-                    देहभाव अहंकार सहजचि जाळीला ll १ ll <br><br>
-                    दया क्षमा शांती उजळील्या ज्योती l <br>
-                    स्वयंप्रकाश रूप देखिली मूर्ती ll २ ll<br><br>
-                    मी तू पण काजळ काजळी गेली ll <br>
-                    निजानंदी तनु पायी ओवाळीली ll ३ ll <br><br>
-                    आनंदाने भावे कर्पुरारती केली ll <br>
-                    पंचतत्व भाव तनु पायी अर्पिली ll ४ ll<br><br>
-                </div>
-            </div>
-
-            <div class="aarti-card" id="seven">
-                <h3>|| जय जय अवधूता हो स्वामी अवधूता |।</h3>
-                <hr>
-                <div class="aarti-content">
-                    जय देव जय देव, जय जय अवधूता, हो स्वामी अवधूता।<br>
-                    अगम्य लीला स्वामी, त्रिभुवनी तुझी सत्ता।।<br>
-                    जय देव जय देव ॥धृ॥<br>
-                    <br>
-                    तुमचे दर्शन होता जाती ही पापे।<br>
-                    स्पर्शनमात्रे विलया जाती भवदुरिते।<br>
-                    चरणी मस्तक ठेवूनि मनि समजा पुरते।<br>
-                    वैकुंठीचे सुख नाही या परते।<br>
-                    जय देव जय देव ॥१॥<br><br>
-                    सुगंध केशर भाळी वर टोपी टिळा।<br>
-                    कर्णी कुंडल शोभति वक्षस्थळी माळा।<br>
-                    शरणागत तुज होतां भय पडले काळा।<br>
-                    तुमचे दास करिती सेवा सोहळा।<br>
-                    जय देव जय देव ॥२॥<br>
-                    <br>
-                    मानवरुपी काया दिससी आम्हांस।<br>
-                    अक्कलकोटी केले यतिवेषे वास।<br>
-                    पूर्णब्रम्ह तूची अवतरलासी खास।<br>
-                    अज्ञानी जीवास विपरीत भास। <br>
-                    जय देव जय देव ॥३॥<br>
-                    <br>
-                    र्निगुण र्निविकार विश्वव्यापक।<br>
-                    स्थिरचर व्यापून अवघा उरलासी एक।<br>
-                    अनंत रुपे धरसी करणे नाएक।<br>
-                    तुझे गुण वर्णिता थकले विधीलेख।<br>
-                    जय देव जय देव ॥४॥<br>
-                    <br>
-                    घडता अनंत जन्मे सुकृत हे गाठी।<br>
-                    त्याची ही फलप्राप्ती सद्-गुरुची भेटी।<br>
-                    सुवर्ण ताटी भरली अमृत रस वाटी।<br>
-                    शरणागत दासावर करी कृपा दृष्टी।<br>
-                    जय देव जय देव ॥५॥<br>
-                </div>
-            </div>
-
-            <div class="aarti-card" id="eight">
-                <h3>|| देवीची आरती ||</h3>
-                <hr>
-                <div class="aarti-content">
-                    दुर्गे दुर्घट भारी तुजविण संसारी ।<br>
-                    अनाथनाथे अंबे करुणा विस्तारी ।<br>
-                    वारी वारी जन्ममरणाते वारी ।<br>
-                    हारी पडलो आता संकट निवारी ।। १ ।।<br>
-                    <br>
-                    जय देवी जय देवी महिषासुरमथनी ।<br>
-                    सुरवरईश्वर-वरदे तारक संजीवनी ।।<br>
-                    जय देवी जय देवी ।। धृ० ।।<br>
-                    <br>
-                    त्रिभुवन भुवनी पहाता तुज ऐसी नाही ।<br>
-                    चारी श्रमले परंतु न बोलवे काही ।<br>
-                    साही विवाद करिता पडले प्रवाही ।<br>
-                    ते तू भक्तालागी पावसी लवलाही ।। २ ।।<br>
-                    <br>
-                    प्रसन्नवदने प्रसन्न होसी निजदासां ।<br>
-                    क्लेशांपासुनी सोडवी तोडी भवपाशा ।<br>
-                    अंबे तुजवाचून कोण पुरवील आशा ।<br>
-                    नरहरि तल्लीन झाला पदपंकजलेशा ।। ३ ।।<br>
-                </div>
-            </div>
-
-            <div class="aarti-card" id="nine">
-                <h3>||पंचप्राण हे आतुर झाले (गुरुवार)||</h3>
-                <hr>
-                <div class="aarti-content">
-                    पंचप्राण हे आतुर झाले | करण्या तव आरती <br>
-                    स्वामी करण्या तव आरती  | सगुण रूपाने येऊन स्वामी<br>
-                    स्वीकारा आरती ||धृ ||<br>
-                    <br>
-                    हरी हर संगे ब्रह्म देवही | खेळे तव भाळी <br>
-                    स्वामी खेळे तव भाळी  | पुनव हासते प्रसन्नतेने<br>
-                    मुख चंद्राचा वरी | लाजविती रवि तेजाला<br>
-                    तव नयनांच्या ज्योती | स्वामी नयनांच्या ज्योती <br>
-                    सगुण रूपाने येऊन स्वामी | स्वीकारा आरती ||१ || <br>
-                    <br>
-                    पुण्यप्रद तव नाम असावे| सदैव या ओठी<br>
-                    स्वामी सदैव या ओठी | श्वासासंगे स्पंदन व्हावे<br>
-                    तुझेच जगजेठी | अगाध महिमा अगाध आहे<br>
-                    स्वामी तव शक्ती  | स्वामी तव शक्ती <br>
-                    सगुण रूपाने येऊन स्वामी | स्वीकारा आरती||२ ||<br>
-                    <br>
-                    धर्माचरणी पावन व्हावे | सदा असो सन्मति <br>
-                    स्वामी सदा असो सन्मति | सत्कर्माचा यज्ञ घडावा<br>
-                    झिजवुनि ही यष्टी | सन्मार्गाने सदैव न्यावे<br>
-                    घेऊनी मज हाती  | स्वामी घेऊनी मज हाती <br>
-                    सगुण रूपाने येऊन स्वामी | स्वीकारा आरती ||३||<br>
-                    <br>
-                    अहंपणाचा लोप करुनि | कृतार्थ जीवन करा <br>
-                    स्वामी कृतार्थ जीवन करा  | पावन करुनी घ्यावे मजला<br>
-                    तेजोमय भास्करा  |अल्पचि भिक्षा घालुनि<br>
-                    स्वामी न्यावे मज संगती  | स्वामी न्यावे मज संगती <br>
-                    सगुण रूपाने येऊन स्वामी | स्वीकारा आरती||४||<br>
-                    <br>
-                    पंचप्राण हे आतुर झाले | करण्या तव आरती <br>
-                    स्वामी करण्या तव आरती |सगुण रूपाने येऊन स्वामी<br>
-                    स्वीकारा आरती  |सगुण रूपाने येऊन स्वामी<br>
-                    स्वीकारा आरती  |सगुण रूपाने येऊन स्वामी<br>
-                    स्वीकारा आरती ||धृ ||<br>
-                </div>
-            </div>
-
-            <div class="aarti-card" id="ten">
-                <h3>|| घालीन लोटांगण ||</h3>
-                <hr>
-                <div class="aarti-content">
-                    घालीन लोटांगण वंदीन चरण ।<br>
-                    डोळ्यांनी पाहिन रूप तुझे ।<br>
-                    प्रेमें आलिंगीन आनंद पूजन ।<br>
-                    भावे ओवाळिन म्हणे नामा ।।<br>
-                    <br>
-                    त्वमेव माता पिता त्वमेव ।<br>
-                    त्वमेव बन्धु: सखा त्वमेव ।<br>
-                    त्वमेव विद्या द्रविणं त्वमेव ।<br>
-                    त्वमेव सर्वं मम देवदेव ।।<br>
-                    <br>
-                    कायेन वाचा मनसेंद्रियैर्वा ।<br>
-                    बुध्यात्मना वा प्रकृति स्वभावात् ।<br>
-                    करमि यद्यत् सकलं परस्मै ।<br>
-                    नारायणायेती समर्पयामि ।।<br>
-                    <br>
-                    अच्युतं केशवं राम नारायणम्<br>
-                    कृष्णदामोदरं वासुदेवं भजे।<br>
-                    श्रीधरं माधवं गोपिकावल्लभम्<br>
-                    जानकीनायकं रामचंद्र भजे ।।<br>
-                    हरे राम हरे राम राम राम हरे हरे हरे कृष्ण हरे कृष्ण कृष्ण कृष्ण हरे हरे ।।<br>
-                    ।। मंगलमुर्ती मोरया ।। ।। गणपतिबाप्पा मोरया ।।<br>
-                </div>
-            </div>
-
-            <div class="aarti-card" id="eleven">
-                <h3>|| तारक मंत्र ||</h3>
-                <hr>
-                <div class="aarti-content">
-                    निशंक होई रे मना, निर्भय होई रे मना।<br>
-                    प्रचंड स्वामीबळ पाठीशी, नित्य आहे रे मना।<br>
-                    अतर्क्य अवधूत हे स्मर्तुगामी,<br>
-                    अशक्य ही शक्य करतील स्वामी ।।१।।<br>
-                    <br>
-                    जिथे स्वामीचरण तिथे न्युन्य काय,<br>
-                    स्वये भक्त प्रारब्ध घडवी ही माय।<br>
-                    आज्ञेवीना काळ ही ना नेई त्याला,<br>
-                    परलोकी ही ना भीती तयाला<br>
-                    अशक्य ही शक्य करतील स्वामी ।।२।।<br>
-                    <br>
-                    उगाची भितोसी भय हे पळु दे,<br>
-                    वसे अंतरी ही स्वामीशक्ति कळु दे।<br>
-                    जगी जन्म मृत्यु असे खेळ ज्यांचा,<br>
-                    नको घाबरू तू असे बाळ त्यांचा<br>
-                    अशक्य ही शक्य करतील स्वामी ।।३।।<br>
-                    <br>
-                    खरा होई जागा श्रद्धेसहित,<br>
-                    कसा होसी त्याविण तू स्वामिभक्त।<br>
-                    आठव! कितीदा दिली त्यांनीच साथ,<br>
-                    नको डगमगु स्वामी देतील हात<br>
-                    अशक्य ही शक्य करतील स्वामी ।।४।।<br>
-                    <br>
-                    विभूति नमननाम ध्यानार्दी तीर्थ,<br>
-                    स्वामीच या पंचामृतात।<br>
-                    हे तीर्थ घेइ आठवी रे प्रचिती,<br>
-                    ना सोडती तया, जया स्वामी घेती हाती ।।५।।<br>
-                </div>
-            </div>
-
-            <div class="aarti-card" id="twelve">
-                <h3>|| मंत्रपुष्पांजली ||</h3>
-                <hr>
-                <div class="aarti-content">
-                    ॐ यज्ञेन यज्ञमयजन्त देवास्तनि धर्माणि प्रथमान्यासन् ।<br>
-                    ते ह नाकं महिमान : सचंत यत्र पूर्वे साध्या : संति देवा : ।।<br>
-                    ॐ राजाधिराजाय प्रसह्य साहिने ।<br>
-                    नमो वयं वैश्रवणाय कुर्महे ।<br>
-                    स मस कामान् काम कामाय मह्यं।<br>
-                    कामेश्र्वरो वैश्रवणो ददातु कुबेराय वैश्रवणाय ।<br>
-                    महाराजाय नम: ।<br>
-                    ॐ स्वस्ति। साम्राज्यं भौज्यं स्वाराज्यं<br>
-                    वैराज्यं पारमेष्ठ्यं राज्यं महाराज्यमाधिपत्यमयं<br>
-                    वैराज्यं पारमेष्ठ्यं राज्यं महाराज्यमाधिपत्यमयं<br>
-                    समंतपर्यायीस्यात् सार्वभैम: सार्वायुष आं<br>
-                    तादापरार्धात् पृथिव्यै समुद्रपर्यंताया एकेराळिति<br>
-                    तदप्येष: श्लोको भिगीतो मरूत: परिवेष्टारो<br>
-                    मरूतस्यावसन् गृहे ।<br>
-                    आविक्षितस्य कामप्रेर्विश्र्वेदेवा: सभासद इति ।।<br>
-                    <br>
-                    एकदंतायविघ्महे वक्रतुण्डाय धीमहि ।<br>
-                    तन्नोदंती प्रचोदयात् ।<br>
+                <div class="table-info">
+                    <i class="fas fa-table"></i>
+                    <span>Table: <span id="table-number">Not Set</span></span>
+                    <button id="change-table-btn" style="background: none; border: none; color: white; margin-left: 10px; cursor: pointer;">
+                        <i class="fas fa-edit"></i>
+                    </button>
                 </div>
             </div>
         </div>
-    </div>
+    </header>
 
-    <div class="footer">
+    <div class="filter-section">
         <div class="container">
-            <p>श्री स्वामी समर्थ आरती संग्रह - भक्ती आणि श्रद्धेचा संग्रह</p>
+            <div class="filters">
+                <div class="filter-group">
+                    <span class="filter-label">Food Type:</span>
+                    <div class="filter-options">
+                        <button class="filter-btn active" data-filter="all">
+                            <i class="fas fa-utensils"></i> All
+                        </button>
+                        <button class="filter-btn veg" data-filter="veg">
+                            <i class="fas fa-leaf"></i> Veg
+                        </button>
+                        <button class="filter-btn non-veg" data-filter="non-veg">
+                            <i class="fas fa-drumstick-bite"></i> Non-Veg
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="scroll-top" id="scrollTop">
-        <i class="fas fa-arrow-up"></i>
+    <main class="container">
+        <div class="category-tabs">
+            <div class="category-tab active" data-category="all">All Items</div>
+            <div class="category-tab" data-category="starters">Starters</div>
+            <div class="category-tab" data-category="soup">Soup</div>
+            <div class="category-tab" data-category="rice">Rice</div>
+            <div class="category-tab" data-category="noodles">Noodles</div>
+            <div class="category-tab" data-category="chef-special">Chef Special</div>
+            <div class="category-tab" data-category="chopsy">Chopsy</div>
+        </div>
+
+        <div class="menu-grid" id="menu-container">
+            <!-- Menu items will be dynamically inserted here -->
+        </div>
+    </main>
+
+    <div class="cart-container">
+        <div class="container">
+            <div class="cart-content">
+                <div class="cart-info">
+                    <div class="cart-total">Total: ₹<span id="total-amount">0</span></div>
+                    <div class="cart-count" id="cart-count">0</div>
+                </div>
+                <button class="checkout-btn" id="checkout-btn" disabled>Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Confirmation Modal -->
+    <div class="modal" id="order-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Order Summary</h2>
+                <button class="close-modal" id="close-modal">&times;</button>
+            </div>
+            <div class="order-summary" id="order-summary">
+                <!-- Order items will be dynamically inserted here -->
+            </div>
+            <div class="order-total">
+                <span>Total Amount:</span>
+                <span>₹<span id="modal-total">0</span></span>
+            </div>
+            <button class="confirm-btn" id="confirm-order">Confirm Order</button>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal" id="success-modal">
+        <div class="modal-content">
+            <div class="success-message">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h2>Order Placed Successfully!</h2>
+                <p>Your order has been sent to the kitchen. Thank you!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- QR Scanner/Table Selection Modal -->
+    <div class="modal scanner-modal" id="scanner-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Select Your Table</h2>
+                <button class="close-modal" id="close-scanner-modal">&times;</button>
+            </div>
+            <div class="scanner-container">
+                <div class="scanner-placeholder">
+                    <i class="fas fa-qrcode"></i>
+                    <p>Scan QR Code on your table</p>
+                </div>
+                <p>or</p>
+                <div class="manual-input">
+                    <p>Enter table number manually</p>
+                    <div class="input-group">
+                        <input type="number" class="table-input" id="table-input" placeholder="Table number" min="1" max="50">
+                        <button class="submit-btn" id="submit-table-btn">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
-        function toggleFun(){
-            document.getElementById("dialouge-box").style.display = "block";
-        }
-
-        function closeFun(){
-            document.getElementById("dialouge-box").style.display = "none";
-        }
-
-        // Close dropdown when clicking outside
-        document.addEventListener('click', function(event) {
-            const dialougeBox = document.getElementById('dialouge-box');
-            const button = document.getElementById('button');
+        // Menu data
+        const menuItems = [
+            // Starters
+            { id: 1, name: "Veg Spring Rolls", description: "Crispy rolls filled with fresh vegetables", price: 180, category: "starters", veg: true, image: "placeholder.jpg" },
+            { id: 2, name: "Chicken Lollipop", description: "Spicy and crispy chicken appetizer", price: 220, category: "starters", veg: false, image: "placeholder.jpg" },
+            { id: 3, name: "Paneer Tikka", description: "Grilled cottage cheese with spices", price: 200, category: "starters", veg: true, image: "placeholder.jpg" },
+            { id: 4, name: "Chilli Chicken", description: "Spicy stir-fried chicken with bell peppers", price: 240, category: "starters", veg: false, image: "placeholder.jpg" },
             
-            if (!dialougeBox.contains(event.target) && !button.contains(event.target)) {
-                dialougeBox.style.display = 'none';
-            }
-        });
+            // Soup
+            { id: 5, name: "Hot & Sour Soup", description: "Spicy and tangy soup with vegetables", price: 120, category: "soup", veg: true, image: "placeholder.jpg" },
+            { id: 6, name: "Chicken Sweet Corn Soup", description: "Creamy soup with chicken and corn", price: 150, category: "soup", veg: false, image: "placeholder.jpg" },
+            { id: 7, name: "Tomato Soup", description: "Classic tomato soup with herbs", price: 100, category: "soup", veg: true, image: "placeholder.jpg" },
+            { id: 8, name: "Manchow Soup", description: "Spicy soup with noodles and vegetables", price: 130, category: "soup", veg: true, image: "placeholder.jpg" },
+            
+            // Rice
+            { id: 9, name: "Vegetable Fried Rice", description: "Stir-fried rice with mixed vegetables", price: 160, category: "rice", veg: true, image: "placeholder.jpg" },
+            { id: 10, name: "Chicken Fried Rice", description: "Fried rice with tender chicken pieces", price: 200, category: "rice", veg: false, image: "placeholder.jpg" },
+            { id: 11, name: "Egg Fried Rice", description: "Fried rice with scrambled eggs", price: 180, category: "rice", veg: false, image: "placeholder.jpg" },
+            { id: 12, name: "Schezwan Fried Rice", description: "Spicy schezwan style fried rice", price: 190, category: "rice", veg: true, image: "placeholder.jpg" },
+            
+            // Noodles
+            { id: 13, name: "Hakka Noodles", description: "Stir-fried noodles with vegetables", price: 170, category: "noodles", veg: true, image: "placeholder.jpg" },
+            { id: 14, name: "Chicken Chow Mein", description: "Noodles with chicken and vegetables", price: 210, category: "noodles", veg: false, image: "placeholder.jpg" },
+            { id: 15, name: "Singapore Noodles", description: "Curry flavored noodles with veggies", price: 190, category: "noodles", veg: true, image: "placeholder.jpg" },
+            { id: 16, name: "Pad Thai Noodles", description: "Thai style sweet and sour noodles", price: 220, category: "noodles", veg: true, image: "placeholder.jpg" },
+            
+            // Chef Special
+            { id: 17, name: "Butter Chicken", description: "Creamy and rich butter chicken", price: 280, category: "chef-special", veg: false, image: "placeholder.jpg" },
+            { id: 18, name: "Paneer Butter Masala", description: "Cottage cheese in rich tomato gravy", price: 240, category: "chef-special", veg: true, image: "placeholder.jpg" },
+            { id: 19, name: "Kung Pao Chicken", description: "Spicy stir-fry with peanuts", price: 260, category: "chef-special", veg: false, image: "placeholder.jpg" },
+            { id: 20, name: "Dal Makhani", description: "Creamy black lentils", price: 200, category: "chef-special", veg: true, image: "placeholder.jpg" },
+            
+            // Chopsy
+            { id: 21, name: "Chicken Chops", description: "Grilled chicken chops with herbs", price: 300, category: "chopsy", veg: false, image: "placeholder.jpg" },
+            { id: 22, name: "Veg Chops", description: "Mixed vegetable chops", price: 220, category: "chopsy", veg: true, image: "placeholder.jpg" },
+            { id: 23, name: "Fish Chops", description: "Fish fillet chops with lemon butter", price: 320, category: "chopsy", veg: false, image: "placeholder.jpg" },
+            { id: 24, name: "Mutton Chops", description: "Tender mutton chops with gravy", price: 350, category: "chopsy", veg: false, image: "placeholder.jpg" }
+        ];
 
-        // Scroll to top functionality
-        const scrollTopBtn = document.getElementById('scrollTop');
-        
-        window.addEventListener('scroll', function() {
-            if (window.pageYOffset > 300) {
-                scrollTopBtn.classList.add('show');
+        // App state
+        let cart = {};
+        let currentCategory = 'all';
+        let currentFoodFilter = 'all';
+        let tableNumber = null;
+
+        // DOM elements
+        const menuContainer = document.getElementById('menu-container');
+        const categoryTabs = document.querySelectorAll('.category-tab');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const totalAmountEl = document.getElementById('total-amount');
+        const cartCountEl = document.getElementById('cart-count');
+        const checkoutBtn = document.getElementById('checkout-btn');
+        const orderModal = document.getElementById('order-modal');
+        const successModal = document.getElementById('success-modal');
+        const scannerModal = document.getElementById('scanner-modal');
+        const closeModalBtn = document.getElementById('close-modal');
+        const closeScannerModalBtn = document.getElementById('close-scanner-modal');
+        const orderSummaryEl = document.getElementById('order-summary');
+        const modalTotalEl = document.getElementById('modal-total');
+        const confirmOrderBtn = document.getElementById('confirm-order');
+        const tableNumberEl = document.getElementById('table-number');
+        const changeTableBtn = document.getElementById('change-table-btn');
+        const tableInput = document.getElementById('table-input');
+        const submitTableBtn = document.getElementById('submit-table-btn');
+
+        // Initialize the app
+        function init() {
+            // Check if table number is already set in URL or localStorage
+            checkTableNumber();
+            
+            // Render the menu
+            renderMenuItems();
+            
+            // Setup event listeners
+            setupEventListeners();
+        }
+
+        // Check and set table number
+        function checkTableNumber() {
+            // First, check URL parameters (for QR code implementation)
+            const urlParams = new URLSearchParams(window.location.search);
+            const tableFromUrl = urlParams.get('table');
+            
+            // Then check localStorage
+            const tableFromStorage = localStorage.getItem('hotelTableNumber');
+            
+            // Priority: URL param > localStorage
+            if (tableFromUrl) {
+                setTableNumber(tableFromUrl);
+            } else if (tableFromStorage) {
+                setTableNumber(tableFromStorage);
             } else {
-                scrollTopBtn.classList.remove('show');
+                // If no table number is set, show the scanner modal
+                scannerModal.style.display = 'flex';
             }
-        });
-        
-        scrollTopBtn.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
+        }
 
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
+        // Set table number
+        function setTableNumber(number) {
+            tableNumber = number;
+            tableNumberEl.textContent = number;
+            localStorage.setItem('hotelTableNumber', number);
+            
+            // Update URL without page reload (for QR code functionality)
+            const newUrl = `${window.location.pathname}?table=${number}`;
+            window.history.replaceState({}, '', newUrl);
+        }
+
+        // Render menu items based on current filters
+        function renderMenuItems() {
+            menuContainer.innerHTML = '';
+            
+            // Filter items by category and food type
+            let filteredItems = menuItems;
+            
+            // Apply category filter
+            if (currentCategory !== 'all') {
+                filteredItems = filteredItems.filter(item => item.category === currentCategory);
+            }
+            
+            // Apply food type filter
+            if (currentFoodFilter !== 'all') {
+                const isVeg = currentFoodFilter === 'veg';
+                filteredItems = filteredItems.filter(item => item.veg === isVeg);
+            }
+            
+            // Check if there are any items to display
+            if (filteredItems.length === 0) {
+                menuContainer.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-utensils"></i>
+                        <h3>No items found</h3>
+                        <p>Try changing your filters to see more options</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            // Render the filtered items
+            filteredItems.forEach(item => {
+                const quantity = cart[item.id] || 0;
                 
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
+                const menuItemEl = document.createElement('div');
+                menuItemEl.className = 'menu-item';
+                menuItemEl.innerHTML = `
+                    <div class="item-image">
+                        <div class="placeholder">${item.name}</div>
+                        <div class="veg-indicator ${item.veg ? 'veg' : 'non-veg'}">
+                            ${item.veg ? 'V' : 'NV'}
+                        </div>
+                    </div>
+                    <div class="item-details">
+                        <div class="item-name">${item.name}</div>
+                        <div class="item-description">${item.description}</div>
+                        <div class="item-footer">
+                            <div class="item-price">₹${item.price}</div>
+                            <div class="quantity-selector">
+                                <button class="qty-btn" data-id="${item.id}" data-action="decrease" ${quantity === 0 ? 'disabled' : ''}>-</button>
+                                <span class="qty-value">${quantity}</span>
+                                <button class="qty-btn" data-id="${item.id}" data-action="increase">+</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
                 
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Close the dropdown after selecting an aarti
-                    document.getElementById("dialouge-box").style.display = "none";
+                menuContainer.appendChild(menuItemEl);
+            });
+            
+            // Add event listeners to the quantity buttons
+            document.querySelectorAll('.qty-btn').forEach(btn => {
+                btn.addEventListener('click', handleQuantityChange);
+            });
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // Category tabs
+            categoryTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    categoryTabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    currentCategory = tab.dataset.category;
+                    renderMenuItems();
+                });
+            });
+            
+            // Food type filter buttons
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentFoodFilter = btn.dataset.filter;
+                    renderMenuItems();
+                });
+            });
+            
+            // Checkout button
+            checkoutBtn.addEventListener('click', showOrderModal);
+            
+            // Close modal buttons
+            closeModalBtn.addEventListener('click', () => {
+                orderModal.style.display = 'none';
+            });
+            
+            closeScannerModalBtn.addEventListener('click', () => {
+                // Don't close scanner modal if table is not set
+                if (!tableNumber) return;
+                scannerModal.style.display = 'none';
+            });
+            
+            // Confirm order button
+            confirmOrderBtn.addEventListener('click', confirmOrder);
+            
+            // Change table button
+            changeTableBtn.addEventListener('click', () => {
+                scannerModal.style.display = 'flex';
+            });
+            
+            // Submit table number button
+            submitTableBtn.addEventListener('click', () => {
+                const tableNum = tableInput.value.trim();
+                if (tableNum && !isNaN(tableNum) && tableNum > 0) {
+                    setTableNumber(tableNum);
+                    scannerModal.style.display = 'none';
+                    tableInput.value = '';
+                } else {
+                    alert('Please enter a valid table number');
                 }
             });
-        });
+            
+            // Close modals when clicking outside
+            window.addEventListener('click', (e) => {
+                if (e.target === orderModal) {
+                    orderModal.style.display = 'none';
+                }
+                if (e.target === successModal) {
+                    successModal.style.display = 'none';
+                }
+                if (e.target === scannerModal) {
+                    // Don't close scanner modal if table is not set
+                    if (!tableNumber) return;
+                    scannerModal.style.display = 'none';
+                }
+            });
+        }
+
+        // Handle quantity changes
+        function handleQuantityChange(e) {
+            const itemId = parseInt(e.target.dataset.id);
+            const action = e.target.dataset.action;
+            
+            if (!cart[itemId]) {
+                cart[itemId] = 0;
+            }
+            
+            if (action === 'increase') {
+                cart[itemId]++;
+            } else if (action === 'decrease' && cart[itemId] > 0) {
+                cart[itemId]--;
+            }
+            
+            updateCartDisplay();
+            renderMenuItems(); // Re-render to update quantity displays
+        }
+
+        // Update cart display
+        function updateCartDisplay() {
+            // Calculate total amount and item count
+            let total = 0;
+            let count = 0;
+            
+            for (const itemId in cart) {
+                if (cart[itemId] > 0) {
+                    const item = menuItems.find(i => i.id === parseInt(itemId));
+                    total += item.price * cart[itemId];
+                    count += cart[itemId];
+                }
+            }
+            
+            // Update display
+            totalAmountEl.textContent = total;
+            cartCountEl.textContent = count;
+            
+            // Enable/disable checkout button
+            checkoutBtn.disabled = count === 0;
+        }
+
+        // Show order modal
+        function showOrderModal() {
+            // Check if table is set
+            if (!tableNumber) {
+                scannerModal.style.display = 'flex';
+                return;
+            }
+            
+            orderSummaryEl.innerHTML = '';
+            let total = 0;
+            
+            for (const itemId in cart) {
+                if (cart[itemId] > 0) {
+                    const item = menuItems.find(i => i.id === parseInt(itemId));
+                    const itemTotal = item.price * cart[itemId];
+                    total += itemTotal;
+                    
+                    const orderItemEl = document.createElement('div');
+                    orderItemEl.className = 'order-item';
+                    orderItemEl.innerHTML = `
+                        <div class="order-item-details">
+                            <div class="order-item-name">${item.name}</div>
+                            <div class="order-item-qty">Qty: ${cart[itemId]}</div>
+                        </div>
+                        <div class="order-item-price">₹${itemTotal}</div>
+                    `;
+                    
+                    orderSummaryEl.appendChild(orderItemEl);
+                }
+            }
+            
+            modalTotalEl.textContent = total;
+            orderModal.style.display = 'flex';
+        }
+
+        // Confirm order
+        function confirmOrder() {
+            // In a real app, you would send this data to your backend
+            const orderData = {
+                table: tableNumber,
+                items: cart,
+                total: parseInt(modalTotalEl.textContent),
+                timestamp: new Date().toISOString()
+            };
+            
+            console.log('Order placed:', orderData);
+            
+            // Show success message
+            orderModal.style.display = 'none';
+            successModal.style.display = 'flex';
+            
+            // Reset cart
+            cart = {};
+            updateCartDisplay();
+            renderMenuItems();
+            
+            // Auto-close success modal after 3 seconds
+            setTimeout(() => {
+                successModal.style.display = 'none';
+            }, 3000);
+        }
+
+        // Initialize the app when DOM is loaded
+        document.addEventListener('DOMContentLoaded', init);
     </script>
 </body>
 </html>
